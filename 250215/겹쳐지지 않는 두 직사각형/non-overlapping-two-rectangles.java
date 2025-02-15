@@ -71,7 +71,7 @@ public class Main {
         int sum = 0;
         for(int i=0; i<rl ;i++){
             for(int j=0; j<cl; j++){
-                if(r+i < 0 || r+i >=N || c+j < 0|| c+j >=N){
+                if(r+i < 0 || r+i >=N || c+j < 0|| c+j >=M){
                     return -1;
                 }
                 if(isCheck[r+i][c+j]){
