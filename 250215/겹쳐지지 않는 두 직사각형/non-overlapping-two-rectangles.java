@@ -29,7 +29,7 @@ public class Main {
     
     public static int getMaxOfTwoPolygon(){
         boolean [][] check = new boolean[N][M];
-        int max = -1000;
+        int max = -10000;
 
         for(int i=0; i<N; i++){
             for(int j=0; j<M; j++){
@@ -50,7 +50,7 @@ public class Main {
 
     // r, c 지점에 두 번째 직사각형을 그렸을 떄의 최대값
     public static int getSumAnotherPolygon(boolean [][] isCheck){
-        int sum = -1000;
+        int sum = -10000;
         for(int i=0; i<N; i++){
             for(int j=0; j<M; j++){
                 for(int rl =1; i+rl<=N; rl++){
@@ -58,7 +58,6 @@ public class Main {
                         if(isCheck[i][j])
                             continue;
                         sum = Math.max(sum, getSum(i, j, rl, cl, isCheck));
-                        //System.out.println(String.format("%d %d 세로 : %d 가로 : %d 출발", i, j, rl, cl));
                     }
                 }
             }
@@ -72,10 +71,10 @@ public class Main {
         for(int i=0; i<rl ;i++){
             for(int j=0; j<cl; j++){
                 if(r+i < 0 || r+i >=N || c+j < 0|| c+j >=M){
-                    return -1;
+                    return -10000;
                 }
                 if(isCheck[r+i][c+j]){
-                    return -1;
+                    return -10000;
                 }
                 sum += map[r+i][c+j];
             }
