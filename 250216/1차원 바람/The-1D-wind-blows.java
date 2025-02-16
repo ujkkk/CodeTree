@@ -50,8 +50,8 @@ public class Main {
             if(isSame(r, i)){
                 // 위로 향하는 전파시작
                 topSpread(i, d.equals("L")? "R" : "L");
-                break;
             }
+            break;
         }
     }
 
@@ -62,8 +62,8 @@ public class Main {
             if(isSame(r, i)){
                 // 아래로 향하는 전파시작
                 bottomSpread(i, d.equals("L")? "R" : "L");
-                break;
             }
+            break;
         }
     }
 
