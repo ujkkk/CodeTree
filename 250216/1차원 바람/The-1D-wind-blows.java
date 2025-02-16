@@ -30,16 +30,16 @@ public class Main {
             if(isSame(r, i)){
                 // 위로 향하는 전파시작
                 topSpread(i, nextD);
-                break;
             }
+            break;
         }
 
         for(int i=r+1; i<N; i++){
             if(isSame(r, i)){
                 // 아래로 향하는 전파시작
                 bottomSpread(i, nextD);
-                break;
             }
+            break;
         }
     }
 
@@ -107,12 +107,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
         input();
+
         for(int q = 0; q<Q; q++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             int r = Integer.parseInt(st.nextToken());
             String d = st.nextToken();
             firstWind(r-1, d);
         }
+
         print();
     }
 
