@@ -41,7 +41,7 @@ public class Main {
                 }
             }
             // 연속적임
-            if(j- i >= M){
+            if(j- i >= M && map[i] != 0){
                 isChange = true;
                 for(int k=i; k<j; k++){
                     map[k] = 0;
@@ -86,8 +86,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-       input();
-       bomb();
+        input();
+        bomb();
         output();
        
     }
