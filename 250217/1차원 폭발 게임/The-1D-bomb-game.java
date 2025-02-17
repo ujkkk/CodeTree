@@ -25,30 +25,28 @@ public class Main {
             
             gravity();
         }
-        
     }
 
     public static boolean checkContinue(int M){
         int i,j;
         boolean isChange = false;
         for(i=0; i<N; i++){
+            if(map[i] == 0)
+                continue;
+
             for(j=i+1; j<N; j++){
-                if(map[j] == 0)
-                    break;
                 // 연속적이지 않음
                 if(map[i] != map[j]){
                     break;
                 }
             }
             // 연속적임
-            if(j- i >= M && map[i] != 0){
+            if(j- i >= M){
                 isChange = true;
                 for(int k=i; k<j; k++){
                     map[k] = 0;
                 }
             }
-            // output();
-            // System.out.println("#####");
         }
         return isChange;
     }
