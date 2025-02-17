@@ -6,12 +6,12 @@ public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static int N;
     static int [][] map;
-    static int [] bomp = new int[2];
+    static int [] bomb = new int[2];
     
     public static void main(String[] args) throws IOException {
         input();
-
-        solution(bomp[0]-1, bomp[1]-1);
+        solution(bomb[0]-1, bomb[1]-1);
+        print();
     }
 
     public static void input() throws IOException {
@@ -26,22 +26,19 @@ public class Main {
         }
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        bomp[0] = Integer.parseInt(st.nextToken());
-        bomp[1] = Integer.parseInt(st.nextToken());
+        bomb[0] = Integer.parseInt(st.nextToken());
+        bomb[1] = Integer.parseInt(st.nextToken());
 
     }
 
     public static void solution(int r, int c){
         int n = map[r][c];
-        bomp(r, c, n);
+        bomb(r, c, n);
         // 중력 작용
         gravity();
-
-        // 출력
-        print();
     }
 
-    public static void bomp(int r, int c, int n){
+    public static void bomb(int r, int c, int n){
         int [] dr = {-1, 0, 1, 0};
         int [] dc = {0, 1, 0, -1};
 
