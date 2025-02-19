@@ -54,8 +54,10 @@ public class Main {
 
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
-                if(dp[i][j] == 0)
+                if(dp[i][j] == 0){
+                    dp[i][j] = 1;
                     getMax(i, j, 0);
+                }
             }
         }
 
@@ -66,6 +68,6 @@ public class Main {
             }
         }
 
-        System.out.println(ans +1);
+        System.out.println(ans);
     }
 }
