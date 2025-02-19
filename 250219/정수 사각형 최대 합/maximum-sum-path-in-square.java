@@ -19,8 +19,10 @@ public class Main {
             }
         }
 
-        for(int i=0; i<N; i++){
-            dp[0][i] = map[0][0];
+        // (1,1)에서 오른쪽으로 이동하는 경우 초기화
+        dp[0][0] = map[0][0];
+        for(int i=1; i<N; i++){
+            dp[0][i] = dp[0][i-1] + map[0][i];
         }
 
         for(int i=1; i<N; i++){
