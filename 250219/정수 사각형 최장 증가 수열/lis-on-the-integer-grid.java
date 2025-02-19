@@ -8,7 +8,9 @@ public class Main {
     static long [][] dp;
     static int [][] map;
 
-    public static void getMax(int r, int c){
+    public static void getMax(int r, int c, int d){
+        //System.out.println(String.format("[%d, %d], depth : %d, 값:%d", r, c, d, dp[r][c]));
+
         int [] dr = {-1, 0, 1, 0};
         int [] dc = {0, 1, 0, -1};
 
@@ -27,7 +29,7 @@ public class Main {
             // 갱신될 수 있을 때 다시 갱신
             if(dp[nr][nc] < dp[r][c] + 1){
                 dp[nr][nc] = dp[r][c] +1;
-                getMax(nr, nc);
+                getMax(nr, nc, d+1);
             }
         }
     }
@@ -52,7 +54,8 @@ public class Main {
 
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
-                getMax(i, j);
+                if(dp[i][j] == 0)
+                    getMax(i, j, 0);
             }
         }
 
