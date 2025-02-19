@@ -34,10 +34,6 @@ public class Main {
             }
         }
 
-        long ans = 0;
-        for(int i=0; i<N; i++){
-            ans = Math.max(dp[N-1][i], ans);
-        }
-        System.out.println(ans);
+        System.out.println(dp[N-1][N-1]);
     }
 }
