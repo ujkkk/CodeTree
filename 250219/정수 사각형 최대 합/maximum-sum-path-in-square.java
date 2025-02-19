@@ -9,7 +9,7 @@ public class Main {
         // Please write your code here.
         int N = Integer.parseInt(br.readLine());
         int [][] map = new int[N][N];
-        int [][] dp = new int[N][N];
+        long [][] dp = new long[N][N];
 
         StringTokenizer st;
         for(int i=0; i<N; i++){
@@ -34,7 +34,7 @@ public class Main {
             }
         }
 
-        int ans = 0;
+        long ans = 0;
         for(int i=0; i<N; i++){
             ans = Math.max(dp[N-1][i], ans);
         }
