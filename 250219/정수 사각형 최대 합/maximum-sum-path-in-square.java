@@ -18,21 +18,22 @@ public class Main {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-
-        // (1,1)에서 오른쪽으로 이동하는 경우 초기화
+        
         dp[0][0] = map[0][0];
+        // 최상단 행 초기화
         for(int i=1; i<N; i++){
             dp[0][i] = dp[0][i-1] + map[0][i];
         }
 
+        // 최좌측 열 초기화
         for(int i=1; i<N; i++){
-            for(int j=0; j<N; j++){
-                if(j == 0){
-                    dp[i][j] = dp[i-1][j] + map[i][j];
-                    continue;
-                }
-                dp[i][j] = Math.max(dp[i-1][j] + map[i][j],
-                            dp[i][j-1] + map[i][j]);
+            dp[i][0] = dp[i-1][0] + map[i][0];
+        }
+
+
+        for(int i=1; i<N; i++){
+            for(int j=1; j<N; j++){
+                dp[i][j] = Math.max(dp[i-1][j] ,dp[i][j-1]) + map[i][j];
             }
         }
 
