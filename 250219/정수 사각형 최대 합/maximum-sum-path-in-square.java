@@ -20,7 +20,7 @@ public class Main {
         }
 
         for(int i=0; i<N; i++){
-            dp[0][i] = map[0][i];
+            dp[0][i] = map[0][0];
         }
 
         for(int i=1; i<N; i++){
