@@ -21,22 +21,27 @@ public class Main {
 
         Collections.sort(lines);
 
-        int [] dp = new int[1001];
+        int [][] dp = new int[1001][2];
     
         for(Line line : lines){
-
             for(int i=0; i<line.start; i++){
-                
+                // 이전 줄의 끝점이 현재 줄의 start보다 작아야 함
+                if(dp[i][1] >= line.start){
+                    continue;
+                }
                 for(int j=line.start; j<=line.end; j++){
-                    dp[j] = Math.max(dp[j], dp[i] +1);
+                    if(dp[j][0] < dp[i][0] +1){
+                        dp[j][0] = Math.max(dp[j][0], dp[i][0] +1);
+                        dp[j][1] = line.end;
+                    }
                 }
             }
         }
 
         int ans = 0;
-        for(int i=0; i<1001; i++){
-            //System.out.print(dp[i] +" ");
-            ans = Math.max(ans, dp[i]);
+        for(int i=0; i<100; i++){
+            //System.out.print(dp[i][0] +" ");
+            ans = Math.max(ans, dp[i][0]);
         }
         //System.out.println();
         System.out.println(ans);
