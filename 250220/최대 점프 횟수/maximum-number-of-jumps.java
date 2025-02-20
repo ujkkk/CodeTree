@@ -1,14 +1,18 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
+    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    
+    public static void main(String[] args)  throws IOException {
+        int N = Integer.parseInt(br.readLine());
         int [] nums = new int[N];
         int [] dp = new int[N];
 
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for(int i=0; i<N; i++){
-            nums[i] = sc.nextInt();
+            nums[i] = Integer.parseInt(st.nextToken());
         }
 
         // 처음 칸에서 점프할 수 있는 칸
