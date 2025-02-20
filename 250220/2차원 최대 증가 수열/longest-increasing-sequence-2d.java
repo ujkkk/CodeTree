@@ -24,12 +24,13 @@ public class Main {
 
         for(int i=1; i<N; i++){
             for(int j=1; j<M; j++){
-                if(map[i][j] == 0){
-                    continue;
-                }
                 // (i, j)로 올수 있는 칸은 (0~i-1, 0~j-1)킨 들
                 for(int a=0; a<=i-1; a++){
                     for(int b=0; b<=j-1; b++){
+                        // 첫 번째 칸으로 도달 못할 시
+                        if(map[a][b] == 0){
+                            continue;
+                        }
                         if(map[i][j] <= map[a][b]){
                             continue;
                         }
