@@ -20,6 +20,10 @@ public class Main {
         }
 
         int [][] dp = new int[N][M];
+        for(int i = 0; i < n; i++)
+            for(int j = 0; j < m; j++)
+                dp[i][j] = -1;
+
         dp[0][0] = 1;
 
         for(int i=0; i<N; i++){
@@ -28,7 +32,7 @@ public class Main {
                 for(int a=0; a<=i-1; a++){
                     for(int b=0; b<=j-1; b++){
                         // 첫 번째 칸으로 도달 못할 시
-                        if(map[a][b] == 0){
+                        if(map[a][b] == -1){
                             continue;
                         }
                         if(map[i][j] <= map[a][b]){
