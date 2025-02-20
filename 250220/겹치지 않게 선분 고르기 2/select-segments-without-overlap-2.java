@@ -35,20 +35,7 @@ public class Main {
                     }
                     if(dp[i][0] < dp[j][0] +1){
                         dp[i][0] = Math.max(dp[i][0], dp[j][0] +1);
-                        dp[i][1] = line
-                }
-            }
-            //print();
-        }
-
-        int ans = 0;
-        for(int i=0; i<=max; i++){
-            ans = Math.max(ans, dp[i][0]);
-        }
-        System.out.println(ans);
-
-
-.end;
+                        dp[i][1] = line.end;
                     }
                     //dp[i][1] = Math.min(dp[i][1], dp[j][1]);
                 }
