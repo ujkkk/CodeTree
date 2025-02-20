@@ -20,8 +20,8 @@ public class Main {
         }
 
         int [][] dp = new int[N][M];
-        for(int i = 0; i < n; i++)
-            for(int j = 0; j < m; j++)
+        for(int i = 0; i < N; i++)
+            for(int j = 0; j < M; j++)
                 dp[i][j] = -1;
 
         dp[0][0] = 1;
