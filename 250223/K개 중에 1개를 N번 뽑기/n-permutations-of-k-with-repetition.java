@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
 
     public static int N, K;
-    public static void select(int depth, int [] select, StringBuilder sb){
+    public static void select(int depth, ArrayList<Integer> select, StringBuilder sb){
         if(depth == K){
             for(int n : select){
                 sb.append(n).append(" ");
@@ -13,8 +13,9 @@ public class Main {
         }
 
         for(int i=1; i<=N; i++){
-            select[depth] = i;
+            select.add(i);
             select(depth +1, select, sb);
+            select.remove(select.size() -1);
         }
     }
     public static void main(String[] args) {
@@ -24,9 +25,8 @@ public class Main {
         K = sc.nextInt();
 
         // 중복을 허용해서 뽑기
-        int [] select = new int[K];
         StringBuilder sb = new StringBuilder();
-        select(0, select, sb);
+        select(0, new ArrayList<Integer>(), sb);
 
         System.out.println(sb.toString());
     }
