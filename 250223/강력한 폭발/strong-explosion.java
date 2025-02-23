@@ -7,6 +7,7 @@ public class Main {
     public static int N;
     public static int [][] check;
     public static ArrayList<Point> bombs;
+    static int count = 0;
 
     public static int ans = 0;
 
@@ -24,6 +25,7 @@ public class Main {
 
     public static void checkBombs(int [][] check, int r, int c, int kind){
         //System.out.println(String.format("%d %d, %d 종류 체크", r, c, kind));
+        count++;
         int [][] dr = { {-1, -2, 1, 2}, {-1, 0, 1, 0}, {-1, -1, 1, 1} };
         int [][] dc = { {0, 0, 0, 0,}, {0, 1, 0, -1}, {-1, 1, 1, -1}};
 
@@ -46,9 +48,7 @@ public class Main {
         int [][] dc = { {0, 0, 0, 0,}, {0, 1, 0, -1}, {-1, 1, 1, -1}};
 
         check[r][c]--;
-        if(check[r][c] < 0){
-            check[r][c] = 0;
-        }
+    
         for(int i=0; i<dr[kind].length; i++){
             int nr = r + dr[kind][i];
             int nc = c + dc[kind][i];
@@ -57,9 +57,7 @@ public class Main {
                 continue;
             
             check[nr][nc]--;
-            if(check[nr][nc] < 0){
-                check[nr][nc] = 0;
-            }
+        
         }
         return;
     }
@@ -68,17 +66,11 @@ public class Main {
     public static void select(int depth, int [][] check){
         if(depth == bombs.size()){
             int count = getPoint(check);
-            // print(check);
-            // System.out.println("###########");
-            // // if(count > ans){
-            // //     print(check);
-            // //     System.out.println("###########");
-            // // }
             ans = Math.max(count, ans);
             return;
         }
 
-        for(int i=depth; i<bombs.size(); i++){
+        for(int i=depth; i<depth+1; i++){
             int r = bombs.get(i).r;
             int c = bombs.get(i).c;
 
@@ -116,6 +108,7 @@ public class Main {
 
         select(0, check);
         System.out.println(ans);
+        //System.out.println("count: " + count);
 
     }
 }
